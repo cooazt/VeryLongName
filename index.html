@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            width: 100%;
+            background-color: #181818;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            color: red;
+            font-size: 24px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: red;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .hero-content {
+            max-width: 600px;
+            text-align: center;
+        }
+        .hero-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: red;
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .hero-content .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        .btn {
+            padding: 12px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0px red; /* Initial no glow */
+        }
+        .btn:hover {
+            background-color: #ff6b6b;
+            box-shadow: 0 0 20px 5px red; /* Under glow on hover */
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+            filter: invert(24%) sepia(99%) saturate(7466%) hue-rotate(353deg) brightness(105%) contrast(114%);
+        }
+        .hero-image {
+            max-width: 300px;
+            margin: 20px;
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Personal Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="Subject-taken.html">Subjects Taken</a></li>
+                <li><a href="Currently-Enrolled.html">Currently Enrolled</a></li>
+                <li><a href="Contact-me.html">Contact Me</a></li>
+                <li><a href="My-favorites.html">My Favorites</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Christian Dave S. Jalalon</h2>
+            <p>I'm a <span class="highlight">Drummer</span>, <span class="highlight">Table Tennis Player</span>, and a <span class="highlight">Strategy Game Enthusiast</span>.</p>
+            <p>Passionate about music, sports, and gaming.</p>
+            <button class="btn" onclick="window.location.href='Subject-taken.html'">Subjects Taken</button>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/163tvZA99M/" target="_blank"><img src="icons/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/ " target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+                <a href="https://m.me/christiandave.jalalon" target="_blank"><img src="icons/chat.png" alt="Messenger"></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="profile/bentols.jpg" alt="Profile Picture">
+        </div>
+    </section>
+</body>
+</html>

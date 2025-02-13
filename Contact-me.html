@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            width: 100%;
+            background-color: #181818;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        header h1 {
+            color: red;
+            font-size: 24px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 1in;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            background-color: #181818;
+        }
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 15px 20px;
+            display: block;
+            transition: color 0.3s ease, box-shadow 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: red;
+            box-shadow: 0px 0px 10px red;
+            border-radius: 5px;
+        }
+        .contact-card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin: 30px auto;
+            max-width: 400px;
+        }
+        .contact-card h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        .contact-card p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personal Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="Subject-taken.html">Subjects Taken</a></li>
+                <li><a href="Currently-Enrolled.html">Currently Enrolled</a></li>
+                <li><a href="Contact-me.html">Contact Me</a></li>
+                <li><a href="My-favorites.html">My Favorites</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-card">
+        <h2>Contact Me</h2>
+        <p>Facebook: Deyb Jalalon.</p>
+        <p>Email: geekfam817@gmail.com</p>
+        <p>Number: 09817865637</p>
+    </div>
+</body>
+</html>

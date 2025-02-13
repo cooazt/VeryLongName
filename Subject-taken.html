@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Taken</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            background-color: #181818;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        header h1 {
+            color: red;
+            font-size: 24px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 1in;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            background-color: #181818;
+        }
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 15px 20px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: red;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .pagination button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .pagination button:hover {
+            background-color: red;
+            box-shadow: 0 0 10px red;
+        }
+        .pagination button.active {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Subjects Taken</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="Subject-taken.html">Subjects Taken</a></li>
+                <li><a href="Currently-Enrolled.html">Currently Enrolled</a></li>
+                <li><a href="Contact-me.html">Contact Me</a></li>
+                <li><a href="My-favorites.html">My Favorites</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2 id="semester-title"></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Subject</th>
+                    <th>Schedule</th>
+                    <th>Room</th>
+                    <th>Grade</th>
+                    <th>Units</th>
+                    <th>Status</th>
+                    <th>Instructor</th>
+                </tr>
+            </thead>
+            <tbody id="subject-table"></tbody>
+        </table>
+        <div>
+            <span id="result"></span> | <span id="average"></span>
+        </div>
+        <div class="pagination">
+            <button onclick="changePage(-1)"><</button>
+            <button id="page-1" class="page-btn" onclick="goToPage(0)">1</button>
+            <button id="page-2" class="page-btn" onclick="goToPage(1)">2</button>
+            <button id="page-3" class="page-btn" onclick="goToPage(2)">3</button>
+            <button onclick="changePage(1)">></button>
+        </div>
+    </section>
+
+    <script>
+        const subjectsData = [
+            {
+                semester: "First Semester - 2023-2024",
+                subjects: [
+                    { code: "OC 1", name: "Orientation Course 1", schedule: "MW", room: "08301000A", grade: "1.0", units: "3", status: "Passed", instructor: "TALIRONGAN, FLORENCE JEAN BADILLES" },
+                    { code: "CSIT 1", name: "Introduction to Computing", schedule: "TTH - TTH", room: "10051105A - 11101240P", grade: "1.0", units: "3", status: "Passed", instructor: "TALIRONGAN, FLORENCE JEAN BADILLES" },
+                    { code: "CSIT 2", name: "Fundamentals of Programming/Computer Programming 1", schedule: "MW - MW", room: "01300230P - 02350405P", grade: "1.0", units: "3", status: "Passed", instructor: "ORONG, MARKDY YUAG" },
+                    { code: "NSTP 1L", name: "NSTP 1-Literacy Training Service (LTS)", schedule: "FRI", room: "08001100A", grade: "1.5", units: "3", status: "Passed", instructor: "CARTAJENAS, MARJORIE TRIGO" },
+                    { code: "PE 1", name: "Path Fit 1: Movement Competency Training", schedule: "FRI", room: "01000300P", grade: "1.5", units: "2", status: "Passed", instructor: "MORENO, HEIDY RUMANDAN" },
+                    { code: "SOC SC 1", name: "Understanding the Self / Pag-unawa sa Sarili", schedule: "MW", room: "05450715P", grade: "2.0", units: "3", status: "Passed", instructor: "MORILLA, MICHELLE DARUG" },
+                    { code: "ENGLA", name: "Grammar and Speech Enhancement", schedule: "MW", room: "04100540P", grade: "1.75", units: "3", status: "Passed", instructor: "GOMEZ, ESELL GRACE M" }
+                ],
+                result: 7,
+                average: 1.39
+            },
+            {
+                semester: "Second Semester - 2023-2024",
+                subjects: [
+                    { code: "CSIT 3", name: "Intermediate Programming / Computer Programming 2", schedule: "TTH - TTH", room: "10051105A - 11101240N", grade: "1.0", units: "3", status: "Passed", instructor: "ORONG, MARKDY YUAG" },
+                    { code: "ITP 1", name: "IT Fundamentals", schedule: "MON - TTH", room: "07100810P - 07000800A", grade: "2.0", units: "3", status: "Passed", instructor: "SULTAN, GOLDAH GRACE D" },
+                    { code: "ITP 2", name: "Discrete Mathematics", schedule: "MW", room: "01000230P", grade: "1.25", units: "3", status: "Passed", instructor: "ORONG, MARKDY YUAG" },
+                    { code: "MATH 1", name: "Mathematics in the Modern World/Matematika sa Makabagong Daigdig", schedule: "TTH", room: "04100540P", grade: "2.0", units: "3", status: "Passed", instructor: "REAL, JESSA PINGCA" },
+                    { code: "PE 2", name: "Path Fit 2: Fitness Training", schedule: "FRI", room: "10001200N", grade: "1.0", units: "2", status: "Passed", instructor: "AMIL, CENTHONY L" },
+                    { code: "NSTP 1L", name: "NSTP 2-Literacy Training Service II", schedule: "FRI", room: "04000700P", grade: "1.0", units: "3", status: "Passed", instructor: "GODINEZ, ELDENJAN NACARIO" },
+                    { code: "EP 1S", name: "English Proficiency - Start I", schedule: "MW", room: "05450715P", grade: "1.0", units: "3", status: "Passed", instructor: "CODILLA, KELSY JEAN B" }
+                ],
+                result: 7,
+                average: 1.34
+            },
+            {
+                semester: "First Semester - 2024-2025",
+                subjects: [
+                    { code: "CSIT 4", name: "Data Structures and Algorithms", schedule: "TTH - TTH", room: "03050405P - 01000230P", grade: "2.25", units: "3", status: "Passed", instructor: "CARORO, ROSECLAREMATH AVISO" },
+                    { code: "ITP 3", name: "Networking 1 (CISCO 1: Networking Basics)", schedule: "MW - MW", room: "11101210N - 09351105A", grade: "3.0", units: "3", status: "Passed", instructor: "PAREDES, ROLYSENT KUNDIMAN" },
+                    { code: "ITEL 1A", name: "IT Elective 1: Platform Technologies", schedule: "TTH - TTH", room: "11101210N - 09351105A", grade: "2.0", units: "3", status: "Passed", instructor: "TALIRONGAN, HIDEAR" },
+                    { code: "ITEL 2A", name: "IT Elective 2: Object-Oriented Programming", schedule: "MW - MW", room: "01300230P - 02350405P", grade: "1.75", units: "3", status: "Passed", instructor: "LUMASAG, JERRY MAGHUYOP" },
+                    { code: "HIST 1", name: "Readings in Philippine History /Mga Babasahin Hinggil sa Kasaysayan ng Pilipinas", schedule: "MW", room: "04100540P", grade: "2.0", units: "3", status: "Passed", instructor: "RELACION, APRIL FARELLI M." },
+                    { code: "SOC ECON 1", name: "The Contemporary World / Ang Kasalukuyan Daigdig", schedule: "TTH", room: "08000930A", grade: "1.75", units: "3", status: "Passed", instructor: "ASIBAL, JONATHAN D" },
+                    { code: "PE 3", name: "Path Fit 3: Sports (Individual/Dual)", schedule: "F", room: "06000800A", grade: "1.5", units: "2", status: "Passed", instructor: "MORENO, HEIDY RUMANDAN" }
+                ],
+                result: 7,
+                average: 2.06
+            }
+        ];
+
+        let currentPage = 0;
+
+        function updateTable() {
+            const currentSemester = subjectsData[currentPage];
+            document.getElementById("semester-title").innerText = currentSemester.semester;
+            document.getElementById("result").innerText = `Result: ${currentSemester.result}`;
+            document.getElementById("average").innerText = `Average: ${currentSemester.average}`;
+
+            const tableBody = document.getElementById("subject-table");
+            tableBody.innerHTML = "";
+            currentSemester.subjects.forEach(subject => {
+                const row = `<tr><td>${subject.code}</td><td>${subject.name}</td><td>${subject.schedule}</td><td>${subject.room}</td><td>${subject.grade}</td><td>${subject.units}</td><td>${subject.status}</td><td>${subject.instructor}</td></tr>`;
+                tableBody.innerHTML += row;
+            });
+
+            updatePagination();
+        }
+
+        function changePage(direction) {
+            if (currentPage + direction >= 0 && currentPage + direction < subjectsData.length) {
+                currentPage += direction;
+                updateTable();
+            }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            updateTable();
+        }
+
+        function updatePagination() {
+            document.querySelectorAll(".page-btn").forEach((btn, index) => {
+                btn.classList.toggle("active", index === currentPage);
+            });
+        }
+
+        updateTable();
+    </script>
+</body>
+</html>
+
+

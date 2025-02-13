@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            background-color: #181818;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        header h1 {
+            color: red;
+            font-size: 24px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 1in;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            background-color: #181818;
+        }
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 15px 20px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: red;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slideshow-container img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+        .slideshow-container img.active {
+            display: block;
+        }
+        .slideshow-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .slideshow-buttons button {
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .slideshow-buttons button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="Subject-taken.html">Subjects Taken</a></li>
+                <li><a href="profile/Currently-Enrolled.html">Currently Enrolled</a></li>
+                <li><a href="Contact-me.html">Contact Me</a></li>
+                <li><a href="My-favorites.html">My Favorites</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="slideshow-container">
+            <img src="Favorite/p1.jpg" alt="Photo 1" class="active">
+            <img src="Favorite/p2.jpg" alt="Photo 2">
+            <img src="Favorite/p3.jpg" alt="Photo 3">
+            <img src="Favorite/p4.jpg" alt="Photo 4">
+            <img src="Favorite/p5.jpg" alt="Photo 5">
+            <img src="Favorite/p6.jpg" alt="Photo 6">
+            <img src="Favorite/p7.jpg" alt="Photo 7">
+            <img src="Favorite/p8.jpg" alt="Photo 8">
+            <img src="Favorite/p9.jpg" alt="Photo 9">
+            <img src="Favorite/p10.jpg" alt="Photo 10">
+        </div>
+        <div class="slideshow-buttons">
+            <button onclick="previousPhoto()">Previous</button>
+            <button onclick="nextPhoto()">Next</button>
+        </div>
+    </section>
+
+    <script>
+        const photos = document.querySelectorAll('.slideshow-container img');
+        let currentPhotoIndex = 0;
+
+        function showPhoto(index) {
+            photos.forEach((photo, i) => {
+                photo.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            showPhoto(currentPhotoIndex);
+        }
+
+        function previousPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+            showPhoto(currentPhotoIndex);
+        }
+
+        showPhoto(currentPhotoIndex);
+    </script>
+</body>
+</html>

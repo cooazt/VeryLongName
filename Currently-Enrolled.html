@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currently Enrolled</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            width: 100%;
+            background-color: #181818;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        header h1 {
+            color: red;
+            font-size: 24px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 1in;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            background-color: #181818;
+        }
+        nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 15px 20px;
+            display: block;
+            transition: color 0.3s ease, box-shadow 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: red;
+            box-shadow: 0px 0px 10px red;
+            border-radius: 5px;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        table thead {
+            background-color: #353535;
+            color: white;
+        }
+        table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        table tbody tr {
+            background-color: #282828;
+            border-bottom: 1px solid #333;
+        }
+        table tbody tr:nth-child(even) {
+            background-color: #202020;
+        }
+        table tbody td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        table tbody tr:hover {
+            background-color: #383838;
+            transition: background-color 0.3s ease;
+        }
+        table tfoot td {
+            background-color: #161616;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 12px;
+        }
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            table {
+                width: 100%;
+            }
+            th, td {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personal Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="Subject-taken.html">Subjects Taken</a></li>
+                <li><a href="Currently-Enrolled.html">Currently Enrolled</a></li>
+                <li><a href="Contact-me.html">Contact Me</a></li>
+                <li><a href="My-favorites.html">My Favorites</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Second Semester - 2024-2025</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Subject</th>
+                    <th>Schedule</th>
+                    <th>Room</th>
+                    <th>Units</th>
+                    <th>Grade</th>
+                    <th>Instructor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CSIT 5</td>
+                    <td>Information Management</td>
+                    <td>TTH - 03050405P - 04100540P</td>
+                    <td>HF306 - HF304</td>
+                    <td>3</td>
+                    <td>No grade yet</td>
+                    <td>TALIRONGAN, FLORENCE JEAN BADILLES</td>
+                </tr>
+                <tr>
+                    <td>ITP 4</td>
+                    <td>Integrative Programming & Technologies 1</td>
+                    <td>MW - TTH - 04100510P - 11101240N</td>
+                    <td>HF307 - HF204</td>
+                    <td>3</td>
+                    <td>No grade yet</td>
+                    <td>TALIRONGAN, HIDEAR</td>
+                </tr>
+                <tr>
+                    <td>ITP 5</td>
+                    <td>Networking 2 (Cisco 2: Routing Protocols & Concepts)</td>
+                    <td>MW - MW - 09351035A - 08000930A</td>
+                    <td>HF307 - HF202</td>
+                    <td>3</td>
+                    <td>No grade yet</td>
+                    <td>PAREDES, ROLYSENT KUNDIMAN</td>
+                </tr>
+                <tr>
+                    <td>ITP 6</td>
+                    <td>Introduction to Human Computer Interaction</td>
+                    <td>MW - MW - 11101210N - 01000230P</td>
+                    <td>HF305 - HF204</td>
+                    <td>3</td>
+                    <td>No grade yet</td>
+                    <td>CARORO, ROSECLAREMATH AVISO</td>
+                </tr>
+                <tr>
+                    <td>PHILO 1</td>
+                    <td>Ethics / Etika</td>
+                    <td>F - 08001100A</td>
+                    <td>SA103</td>
+                    <td>3</td>
+                    <td>No grade yet</td>
+                    <td>JUDILLA, RICOJUN S</td>
+                </tr>
+                <tr>
+                    <td>COM 1</td>
+                    <td>Purposive Communication / Malayuning Komunikasyon</td>
+                    <td>MW - 02350405P</td>
+                    <td>A205</td>
+                    <td>3</td>
+                    <td>No grade yet</td>
+                    <td>JUDILLA, RICOJUN S</td>
+                </tr>
+                <tr>
+                    <td>PE 4</td>
+                    <td>Path Fit 4: Sports (Team)</td>
+                    <td>F - 06000800A</td>
+                    <td>CCRT</td>
+                    <td>2</td>
+                    <td>No grade yet</td>
+                    <td>BELEY, ANDRES NARANJO</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">Result</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td colspan="6">Average</td>
+                    <td>0</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+</body>
+</html>
+
